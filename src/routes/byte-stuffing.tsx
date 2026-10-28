@@ -43,9 +43,9 @@ const PRESETS = [
 ];
 
 const SPEEDS = [
-  { label: "slow", ms: 420 },
-  { label: "normal", ms: 220 },
-  { label: "fast", ms: 90 },
+  { label: "slow", ms: 500 },
+  { label: "normal", ms: 250 },
+  { label: "fast", ms: 100 },
 ];
 
 function ByteCell({

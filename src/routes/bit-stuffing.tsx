@@ -40,9 +40,9 @@ const PRESETS = [
 ];
 
 const SPEEDS = [
-  { label: "slow", ms: 220 },
-  { label: "normal", ms: 110 },
-  { label: "fast", ms: 45 },
+  { label: "slow", ms: 500 },
+  { label: "normal", ms: 250 },
+  { label: "fast", ms: 100 },
 ];
 
 function BitCell({ step, active, current }: { step: BitTraceStep; active: boolean; current: boolean }) {

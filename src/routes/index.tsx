@@ -10,13 +10,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Learn data-link framing interactively: step-by-step bit stuffing and byte stuffing visualizers, theory notes and runnable Python code.",
+          "Learn data-link framing interactively: step-by-step bit stuffing and byte stuffing visualizers.",
       },
       { property: "og:title", content: "BitWise — Bit & Byte Stuffing Lab" },
       {
         property: "og:description",
         content:
-          "Learn data-link framing interactively: step-by-step bit stuffing and byte stuffing visualizers, theory notes and runnable Python code.",
+          "Learn data-link framing interactively: step-by-step bit stuffing and byte stuffing visualizers.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -88,14 +88,15 @@ function Home() {
             <span className="text-primary">$</span> ./data-link --topic=framing --mode=interactive
           </p>
           <h1 className="mt-4 font-display text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-6xl">
-            Bit &amp; byte stuffing,
+            Bit &amp; Byte stuffing,
             <br />
-            <span className="text-primary glow-primary">visualised bit by bit.</span>
+            <span className="text-primary">visualised bit by bit.</span>
           </h1>
           <p className="mt-5 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-            How do you send data that contains the frame delimiter itself? You stuff it.
+            How do you send data that contains the frame delimiter itself?<br/>
+            You stuff it.<br/>
             This lab animates both classic stuffing algorithms — 0-insertion after five 1s,
-            and 0x7D escaping — with full step traces, theory notes and the matching Python code.
+            and 0x7D escaping — with full step traces.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
@@ -115,14 +116,7 @@ function Home() {
       </section>
 
       <div className="mx-auto max-w-6xl px-4 py-12">
-        <Panel title="live sample — an HDLC frame being stuffed" hint="green = stuffed bits · cyan = flags">
-          <FramePreview />
-          <p className="mt-4 text-xs text-muted-foreground">
-            Payload <code className="text-foreground">{DEMO_BITS}</code> → flags stay intact because every
-            run of five 1s gets a 0 inserted after it.
-          </p>
-        </Panel>
-
+        
         <div className="mt-6 grid gap-4 md:grid-cols-2">
           {LABS.map((lab) => (
             <Link
@@ -145,29 +139,7 @@ function Home() {
           ))}
         </div>
 
-        <div className="mt-6 grid gap-4 md:grid-cols-2">
-          <Link
-            to="/theory"
-            className="rounded-lg border border-border bg-card p-5 transition-colors hover:border-accent/50"
-          >
-            <h2 className="font-display text-lg font-semibold text-foreground">Theory notes →</h2>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Why stuffing exists, where HDLC and PPP use it, and the exact rules side by side.
-            </p>
-          </Link>
-          <Link
-            to="/python"
-            className="rounded-lg border border-border bg-card p-5 transition-colors hover:border-accent/50"
-          >
-            <h2 className="font-display text-lg font-semibold text-foreground">Python code →</h2>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Two documented scripts — <code className="text-accent">bit_stuffing.py</code> and{" "}
-              <code className="text-accent">byte_stuffing.py</code> — with copy &amp; download buttons.
-              Sample frame: <code className="text-primary">{demoFrame}</code>
-            </p>
-          </Link>
         </div>
-      </div>
     </div>
   );
 }

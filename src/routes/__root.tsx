@@ -19,8 +19,6 @@ const NAV_ITEMS = [
   { to: "/", label: "home" },
   { to: "/bit-stuffing", label: "bit stuffing" },
   { to: "/byte-stuffing", label: "byte stuffing" },
-  { to: "/theory", label: "theory" },
-  { to: "/python", label: "python code" },
 ] as const;
 
 function NotFoundComponent() {
@@ -95,13 +93,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "An interactive lab for bit stuffing and byte stuffing: step-by-step visualizers, theory notes and runnable Python code.",
+          "An interactive lab for bit stuffing and byte stuffing: step-by-step visualizers.",
       },
       { property: "og:title", content: "BitWise — Bit & Byte Stuffing Lab" },
       {
         property: "og:description",
         content:
-          "An interactive lab for bit stuffing and byte stuffing: step-by-step visualizers, theory notes and runnable Python code.",
+          "An interactive lab for bit stuffing and byte stuffing: step-by-step visualizers.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -144,7 +142,7 @@ function SiteNav() {
     <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-6 gap-y-2 px-4 py-3">
         <Link to="/" className="font-display text-base font-semibold tracking-tight text-foreground">
-          bitwise<span className="text-primary">_</span>lab
+          stuffing<span className="text-primary">_</span>lab
         </Link>
         <nav className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs">
           {NAV_ITEMS.map((item) => (
@@ -180,7 +178,7 @@ function RootComponent() {
         </main>
         <footer className="border-t border-border px-4 py-6">
           <p className="mx-auto max-w-6xl text-xs text-muted-foreground">
-            bitwise_lab — data-link framing, stuffed one bit at a time. HDLC · PPP · educational.
+            stuffing_lab — data-link framing, stuffed one bit at a time. HDLC · PPP · educational.
           </p>
         </footer>
       </div>
