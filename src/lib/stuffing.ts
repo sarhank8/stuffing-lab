@@ -70,7 +70,7 @@ export function bitDestuff(body: string): { bits: string; error?: string } {
   let i = 0;
 
   while (i < body.length) {
-    const bit = body[i];
+    const bit = body.charAt(i);
     bits.push(bit);
     if (bit === "1") {
       run += 1;
