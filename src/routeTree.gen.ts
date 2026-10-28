@@ -10,33 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BitStuffingRouteImport } from './routes/bit-stuffing'
+import { Route as ByteStuffingRouteImport } from './routes/byte-stuffing'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BitStuffingRoute = BitStuffingRouteImport.update({
+  id: '/bit-stuffing',
+  path: '/bit-stuffing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ByteStuffingRoute = ByteStuffingRouteImport.update({
+  id: '/byte-stuffing',
+  path: '/byte-stuffing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/bit-stuffing': typeof BitStuffingRoute
+  '/byte-stuffing': typeof ByteStuffingRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/bit-stuffing': typeof BitStuffingRoute
+  '/byte-stuffing': typeof ByteStuffingRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/bit-stuffing': typeof BitStuffingRoute
+  '/byte-stuffing': typeof ByteStuffingRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/bit-stuffing' | '/byte-stuffing'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/bit-stuffing' | '/byte-stuffing'
+  id: '__root__' | '/' | '/bit-stuffing' | '/byte-stuffing'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BitStuffingRoute: typeof BitStuffingRoute
+  ByteStuffingRoute: typeof ByteStuffingRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +68,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/bit-stuffing': {
+      id: '/bit-stuffing'
+      path: '/bit-stuffing'
+      fullPath: '/bit-stuffing'
+      preLoaderRoute: typeof BitStuffingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/byte-stuffing': {
+      id: '/byte-stuffing'
+      path: '/byte-stuffing'
+      fullPath: '/byte-stuffing'
+      preLoaderRoute: typeof ByteStuffingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BitStuffingRoute: BitStuffingRoute,
+  ByteStuffingRoute: ByteStuffingRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
